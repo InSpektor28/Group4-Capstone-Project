@@ -89,6 +89,8 @@ def generate_url():
 
 @app.route('/watch_with_others/<room_id>')
 def watch_with_others(room_id):
+    if room_id not in rooms:
+        return "Invalid room_id"
     video_url = rooms[room_id]
     video_mime = 'video/mp4'
     return render_template('index.html', room_id=room_id, video_url=video_url, video_mime=video_mime)

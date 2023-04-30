@@ -4,10 +4,12 @@ import random
 import secrets
 from werkzeug.utils import secure_filename
 import os
+import eventlet
+eventlet.monkey_patch()
 
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode='gevent', cors_allowed_origins="*")
 
 rooms = {}
 

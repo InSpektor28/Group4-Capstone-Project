@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Shared Watching Application</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/netflix_party.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{url_for('static', filename= 'images/netflix-logo-png-2616.png')}}" alt="Netflix Logo" style=" position: absolute; top: 10px; left: 10px; height: 50px;">
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('nav_link') }}">Watch with Others!</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content_link">
+                <div class="content_link">
+                    <h1>Generate a Link Code</h1>
+                    <form>
+                        <label for="link">Link:</label>
+                        <input type="text" id="link" name="link" value="{{ url_for('watch_with_others', room_id=unique_id, _external=True) }}">
+                        <button type="button" onclick="copyToClipboard()">Copy Link</button>
+                    </form>
+                </div>
+                
+            </div>
+    <!-- JavaScript for copy link function -->
+    <script type="text/javascript">
+        function copyToClipboard() {
+          var link = document.getElementById("link");
+          link.select();
+          link.setSelectionRange(0, 99999);
+          document.execCommand("copy");
+          alert("Link copied to clipboard!");
+        }
+    </script>
+    <!-- End JavaScript -->
+</body>
+</html>

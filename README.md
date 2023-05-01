@@ -1,7 +1,6 @@
 # Group4-Capstone-Project
 IMPORTANT
 Before you can run the flask app on your machine make sure to have installed pip and the relevant python packages:
-pip install here:
  pip install flask
  pip install flask_socketio
  pip install secrets

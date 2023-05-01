@@ -1,3 +1,4 @@
+//Video player and chat functionality is all handled here
 document.addEventListener('DOMContentLoaded', function() {
     var socket = io();
     var chatForm = document.getElementById('chat-form');
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Message event received on client side");
         console.log("Received message:", data.message, "from user:", data.username, "in room:", data.room_id);
         
-        // Call the addMessageToChat function here
+        // Call the addMessageToChat function 
         addMessageToChat(data.username, data.message);
     });
 

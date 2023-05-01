@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var socket = io("wss://" + document.domain + ":" + location.port);
+    var socket = io();
     var chatForm = document.getElementById('chat-form');
     var chatInput = document.getElementById('chat-input');
     var chatContainer = document.getElementById('chat-container');

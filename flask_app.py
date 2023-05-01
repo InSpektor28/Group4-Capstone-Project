@@ -4,12 +4,10 @@ import random
 import secrets
 from werkzeug.utils import secure_filename
 import os
-import eventlet
-eventlet.monkey_patch()
 
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, async_mode='gevent', cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 rooms = {}
 
@@ -91,8 +89,6 @@ def generate_url():
 
 @app.route('/watch_with_others/<room_id>')
 def watch_with_others(room_id):
-    if room_id not in rooms:
-        return "Invalid room_id"
     video_url = rooms[room_id]
     video_mime = 'video/mp4'
     return render_template('index.html', room_id=room_id, video_url=video_url, video_mime=video_mime)
@@ -109,4 +105,4 @@ def handle_send_message(data):
 
 
 if __name__ == '__main__':
-    socketio.run(app, host="0.0.0.0", port=5000)
+    socketio.run(app, debug=True)

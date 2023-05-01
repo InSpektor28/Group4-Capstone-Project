@@ -1,9 +1,0 @@
-Flask
-Flask-SocketIO
-python-engineio
-python-socketio
-gevent
-gevent-websocket
-Werkzeug
-setuptools
-greenlet

@@ -1,12 +1,12 @@
 # Group4-Capstone-Project
 IMPORTANT
 Before you can run the flask app on your machine make sure to have installed pip and the relevant python packages:
- pip install flask
- pip install flask_socketio
- pip install secrets
- pip install werkzeug
- pip install os
- pip install random
+ pip install flask,
+ pip install flask_socketio,
+ pip install secrets,
+ pip install werkzeug,
+ pip install os,
+ pip install random,
  
  Once you have all the necessary packages installed you can start downloading the files/folders.
  1.Make sure everything is inside one main folder
@@ -17,8 +17,8 @@ Before you can run the flask app on your machine make sure to have installed pip
  5.The uploads folder is for the server to have a place to store the videos you will be uploading
  
  TO RUN:
- You can run the server in one of two ways,
- the first way is to open up the folder in your editor (i.e vs code) go to the flask_app.py file and click run, then in the terminal follow the link it generates
+ You can run the server in one of two ways.
+ the first way is to open up the folder in your editor (i.e vs code) go to the flask_app.py file and click run, then in the terminal follow the link it generates.
  the second way is through the command line, cd to the directory in which you have all the code/files, after you reach the destination use:
  python --flask_app.py
  

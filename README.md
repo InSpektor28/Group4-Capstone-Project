@@ -22,3 +22,4 @@ Before you can run the flask app on your machine make sure to have installed pip
  the second way is through the command line, cd to the directory in which you have all the code/files, after you reach the destination use:
  python --flask_app.py
  
+ Once you get the flask app running, upload the video of your choosing(make sure its an mp4 file) and then click "Create Watch Party". This will load the video into the video player for viewing

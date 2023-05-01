@@ -11,14 +11,14 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 rooms = {}
 
-
+#generates room for users to be able to chat and watch together
 def get_rooms():
     while True:
         room_id = secrets.token_hex(16)
         if room_id not in rooms:
             return room_id
 
-
+#renders the html files inside the flask app so that the web app will look how intended
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -28,7 +28,7 @@ def home():
 def nav_link():
     return render_template('code_link.html')
 
-
+#server side code for both uploading and playing the video that is uploaded
 @app.route('/play_video', methods=['POST'])
 def play_video():
     video = request.files['video']
@@ -80,20 +80,20 @@ def upload():
         return render_template('index.html', video_name=video.filename)
     return 'Invalid video file'
 
-
+#server side code to generate the link for others to join
 @app.route('/generate_url')
 def generate_url():
     unique_id = secrets.token_hex(16)
     return render_template('code_link.html', unique_id=unique_id)
 
-
+#creates the watch party
 @app.route('/watch_with_others/<room_id>')
 def watch_with_others(room_id):
     video_url = rooms[room_id]
     video_mime = 'video/mp4'
     return render_template('index.html', room_id=room_id, video_url=video_url, video_mime=video_mime)
 
-
+#handles the chat functionality
 @socketio.on('send_message')
 def handle_send_message(data):
     room_id = data['room_id']

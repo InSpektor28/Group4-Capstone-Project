@@ -68,7 +68,6 @@ body {
   flex-grow: 1;
   overflow-y: auto;
   margin-bottom: 10px;
-  border: 1px solid blue;
 }
 
 .chat-message {
